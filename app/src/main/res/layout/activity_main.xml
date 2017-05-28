@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginLeft="5dp"
             android:text="메뉴 이미지의 변경 간격(초) "
             android:textColor="#ffffff" />
 
@@ -46,6 +47,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:onClick="onClick"
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,13 +60,14 @@
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="28dp"
-            android:text="오늘 뭐 먹을까?" />
+            android:text="오늘 뭐 먹을까?"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"/>
 
         <TextView
             android:id="@+id/tv"
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="시작부터 0초"
