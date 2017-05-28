@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity
         imageView = (ImageView)findViewById(R.id.imageView);
         textView = (TextView)findViewById(R.id.tv);
         editText = (EditText)findViewById(R.id.editText);
-//        gap = Integer.parseInt(editText.getText().toString());
         setTitle("오늘 뭐 먹지?");
 
     }
@@ -53,7 +52,6 @@ public class MainActivity extends AppCompatActivity
             {
                 try
                 {
-//                    Thread.sleep(gap);//에딧텍스트에넣은숫자
                     Thread.sleep(1000);
                     publishProgress(time++);
 
@@ -70,14 +68,12 @@ public class MainActivity extends AppCompatActivity
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
             textView.setText("시작부터 "+values[0]+"초");
-//            imageView.setImageResource(images[values[0]]);
             temptime = values[0];
         }
 
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-//            textView.setVisibility(View.INVISIBLE);
         }
 
         @Override
@@ -163,6 +159,8 @@ public class MainActivity extends AppCompatActivity
                     itask = new imagetask();
                     started = true;
                     itask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+                    //만약 여러개의 Asynctask를 동시에 실행시키고싶다면 execute대신 이녀석을 써라..대신
+                    //Be careful that the two threads do not interact on the same data, this can cause some strange and hard to trace errors.라고한다
                     ttask.execute(1);
                 }
             }
